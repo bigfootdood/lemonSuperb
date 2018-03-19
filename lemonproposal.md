@@ -83,5 +83,5 @@ The habitats
 | name | string | The habitat's name |
 |background|int|one of five preexisting backgrounds|
 |_id|string|unique identifier for each habitat|
-|pets_in_habitat|list|all the pets in the habitat|
+|pets_in_habitat|array|all the pets in the habitat|
 ---
