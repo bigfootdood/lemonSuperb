@@ -44,22 +44,13 @@ This subdocument is used to store pet information
     "sick": "0"
 }
 ```
-## Habitat (Subdocument)
 
-This subdocument
-```js
-{
-    "name":"Rain-forest",
-    "background": "3",
-    "id": "c5d0fd67-7977-4fc5-9088-33d0347c932b",
-}
-```
 
 
 | Name | Type | Description |
 |------|------|-------------|
 | name | string | The user's name. |
-| _id  | string | A globally unique identifier to represent the user |
+| _id  | string | A globally unique identifier to represent the pet |
 |species|int|An int representing which species from a predetermined list of species|
 |color|string|Hex value representing color|
 |age|int|value representing pet's name|
@@ -67,6 +58,21 @@ This subdocument
 |thirst|int|value representing pet's thirst meter out of 10|
 |sick|bool|0 for sick 1 for not sick, pet can be healed with medicine|
 
+## Habitat (Subdocument)
+
+This subdocument
+```js
+{
+    "name":"Rain-forest",
+    "background": "3",
+    "_id": "c5d0fd67-7977-4fc5-9088-33d0347c932b",
+}
+```
+| Name | Type | Description |
+|------|------|-------------|
+| name | string | The habitat's name |
+|background|int|one of five preexisting backgrounds|
+|_id|string|unique identifier for each habitat|
 ---
 ## Tasks
 
