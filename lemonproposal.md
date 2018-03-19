@@ -30,20 +30,31 @@ The user collection will store the user login info, session info, and virtual pe
 | hashedPassword | string | A bcrypted string that is a hashed version of the user's password |
 |petIds|Array| Array of petIds corresponding to each pet
 
-## Pet (subdocument; not stored in a collection)
+## Pet (subdocument: not stored in a collection)
 This subdocument is used to store pet information
-```
+```js
 {
     "name":"Franky",
     "_id":"c5d0fd67-7977-4fc5-9088-33d0347c932b",
     "species": "3",
-    "color": #8B4513,
+    "color": "#8B4513",
     "age": "4",
     "hunger": "5",
     "thirst": "3",
     "sick": "0"
 }
 ```
+## Habitat (Subdocument)
+
+This subdocument
+```js
+{
+    "name":"Rain-forest",
+    "background": "3",
+    "id": "c5d0fd67-7977-4fc5-9088-33d0347c932b",
+}
+```
+
 
 | Name | Type | Description |
 |------|------|-------------|
