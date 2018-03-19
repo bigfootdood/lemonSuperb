@@ -5,7 +5,7 @@
 * Raul Camilo
 * Zach Saegesser
 * Derek Pulaski
-* Ryan Edelstien
+* Ryan Edelstein
 
 ## Description
 We want to make the best virtual pet site there is. Nothing is more relaxing than getting home, and logging into see how your little virtual buddy is doing.
