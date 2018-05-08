@@ -11,7 +11,7 @@
 {
     "_id":"7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
     "sessionId":"b3988882-627f-4c59-8d5d-54b7a43b030e",
-    "userName": "derk123" 
+    "userName": "derk123",
     "hashedPassword":"$2a$08$XdvNkfdNIL8Fq7l8xsuIUeSbNOFgK0M0iV5HOskfVn7.PWncShU.O",
     "petIds":["7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310","7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310"]
 }
