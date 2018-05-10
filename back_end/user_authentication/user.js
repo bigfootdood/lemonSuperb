@@ -25,6 +25,15 @@ checkPassword(candidatePass) {
 		}
 		throw `User not found. (Username: ${userName})`;
 	}
+
+	static findPetId(id) {
+		for (const data of user) {
+			if (data.petId === id)
+				return new User(data);
+		}
+		throw 'PetId not found. (PetId: ${id})';
+	}
+
 }
 
 module.exports = User;
