@@ -45,13 +45,13 @@ module.exports = {
 
         if (!updates) throw "You must provide updated data";
 
-        const updatedPet = { 
+        const updateObj = { 
             $set : updates
             
         }
         const updatedPet = await Pets.findOneAndUpdate(
             { _id: id},
-            updatedPet,
+            updateObj,
             { new: true } // Returns new object
         );
         if (!updatedPet)
@@ -63,9 +63,9 @@ module.exports = {
     async removePet(id) {
         if (!id) throw "You must provide an id to search for";
     
-        const delObj = await Pets.findOneAndRemove({ _id: id});
+        const delObj = await Pets.find({ _id: id}).remove().exec();
     
-        if (delObj.result.n) {
+        if (delObj === null) {
           throw `Could not delete pet with id of ${id}`;
         }
     }
