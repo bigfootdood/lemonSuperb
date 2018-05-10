@@ -3,6 +3,11 @@ const Users = require('../models/user');
 
 module.exports = {
 
+    async getAllUsers() {
+        const userList = await Users.find();
+        
+        return userList;
+    },
     //gets user by username
     async getUser(userN) {
         if(!userN) throw "Must provide a username";
