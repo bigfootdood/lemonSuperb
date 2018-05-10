@@ -11,7 +11,8 @@ const petSchema = new Schema({
     age: {type: Number, default: 0},
     hunger: {type: Number, default: 100},
     thirst: {type: Number, default: 100},
-    sick: {type: Boolean, default: false}
+    sick: {type: Boolean, default: false},
+    alive: {type: Boolean, default: true}
 });
  
 

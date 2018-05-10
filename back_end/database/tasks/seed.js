@@ -49,7 +49,8 @@ var data = [
                 "age": 4,
                 "hunger": 5,
                 "thirst": 3,
-                "sick": false
+                "sick": false,
+                "alive": true
             }
         ]
     }
