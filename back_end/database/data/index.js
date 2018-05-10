@@ -1,5 +1,5 @@
 const petData = require("./pet");
-const userData = require("./users");
+const userData = require("./user");
 
 module.exports = {
     pet: petData,
