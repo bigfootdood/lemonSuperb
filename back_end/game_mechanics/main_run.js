@@ -1,73 +1,81 @@
 //Testing with seed
-const seed = require('../database/tasks/seed');
+// const seed = require('../database/tasks/seed');
 
 const database = require("../database/data");
-
+require("../database")
 
 //require data folder
   //user-pets-habitits functions
 //require cookie
 async function main(){
   console.log(database);
-  // let temp = await database.pet.getAllPets();
-  // console.log("Original pets: ");
-  // console.log(temp);
+
+
+  // await database.user.addUser("ryan", "sucks");
+
+  // console.log("Before Change: ");
+  // console.log(userList);
+
+  let user = await database.user.adoptPet("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", "the_pet_id");
+  let userList = await database.user.getAllUsers();
+  console.log(userList);
+  // console.log(user);
+
+  // let user = await database.user.getUserById("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
+
+
+
+
+
+
+
   //
-  // await database.pet.addPet("waffles", 3, "#123456");
-  // temp = await database.pet.getAllPets();
-  // console.log("Added pets: ");
-  // console.log(temp);
-  //
-  // console.log("about to remove");
-  // let pet = await database.pet.removePet(temp[0]["_id"]);
-  // console.log("done remove");
-  // console.log("Pet that was removed: ");
-  // console.log(pet);
-  //
-  // temp = await database.pet.getAllPets();
-  // console.log("New pets: ");
-  // console.log(temp);
+  // let temp2 = await database.pet.getAllPets();
+  // console.log("Original: ");
+  // console.log(temp2);
+  // // pet_to_update = temp2[0]
+  // // pet_to_update_id = pet_to_update["_id"]
+  // let pet_updated = await database.pet.updateSpecPet(temp2[0]["_id"], {"name": "smelly butt"})
+  // let all_pets = await database.pet.getAllPets()
+  // console.log("After update: ");
+  // console.log(all_pets);
 
 
 
 
+// "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310"    Test user ID
+  // let user = get userID from cookie
+  // let curr_time = Date.now();
+  // let last_time = user['lastlogin']
+  // let diff_hours = floor((curr_time-last_time)/3600000;
 
-  let temp2 = await database.pet.getAllPets();
-  console.log("Original: ");
-  console.log(temp2);
-  // pet_to_update = temp2[0]
-  // pet_to_update_id = pet_to_update["_id"]
-  let all_pets = await database.pet.getAllPets()
-  console.log("After update: ");
-  console.log(all_pets);
+  // let pet = database.pet.getPetById(user['petId'])
 
+  // if(pet["sick"]){
+  //   diff_hours = diff_hours * 3
+  // }
 
+  // let hunger = pet['hunger']
+  // hunger -= (diff_hours*100/72)
+  // let thirst = pet['thirst']
+  // thirst -= (diff_hours*100/24)
+  // let mentalHealth =  pet['mentalHealth']
+  // mentalHealth = (diff_hours*100/8)
 
+  // if hunger <= 0 or thirst <=0 {
+  //   temp = database.pet.updateSpecPet(pet["_id"], {"alive": false})
+  // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //get userID from cookie
-
-  //get current time
-  //get old user time
-  //calc difference
+  // if(mentalHealth < 50){
+  //   if(getRandomInt(3) == 1){
+  //      temp = database.pet.updateSpecPet(pet["_id"], {"sick": true})
+  //   }
+  // }
+  // else {
+  //   if(getRandomInt(6) == 1){
+  //     temp = database.pet.updateSpecPet(pet["_id"], {"sick": true})
+  //   }
+  // }
 
   //update values based on difference
   //get pet_hunger
@@ -81,6 +89,10 @@ async function main(){
   //update thirst_hunger to new thirst_hunger
 
   //do all the stuff
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 main()
