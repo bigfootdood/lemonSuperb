@@ -3,7 +3,8 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
-var user = require('../user');
+var uuid = require('uuid/v1');
+var User = require('../user');
 
 const isAuthUser = (req, res, next) => {
 	if (req.isAuthenticated()) {
@@ -27,6 +28,23 @@ router.get('/logout', function(req, res) {
 	req.flash('success', 'You are logged out');
 	res.redirect('/');
 });
+
+router.get('/login', function(req, res) {
+  res.render('login');
+});
+
+router.get('/newUserLogin', function(req, res) {
+  res.render('login');
+});
+
+router.post(
+  '/newUserLogin',
+  passport.authenticate('local', {
+    successRedirect: '/private',
+    failureRedirect: '/',
+    failureFlash: 'Invalid Username or Password'
+  })
+);
 
 router.post(
 	'/login',
