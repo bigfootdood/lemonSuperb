@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const uuidv4 = require('uuid/v4');
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
  
-const userSchema = new Schema(
-    {
+const userSchema = new Schema({
         _id: { type: String, default: uuidv4 },
         sessionId: String,
         userName: {type: String, required: true},
@@ -11,7 +10,7 @@ const userSchema = new Schema(
         petId: String,
         newUser: Boolean,
         lastLogin: {type: Date, default: Date.now}
-});
+});                                         
 
 var User = mongoose.model('User', userSchema);
  
