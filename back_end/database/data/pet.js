@@ -1,12 +1,14 @@
 const Pets = require('../models/pet');
 
 module.exports = {
+    //Gets all pets
     async getAllPets() {
         const petList = await Pets.find();
         
         return petList;
     },
 
+    //Gets pet by ID
     async getPetById(id){
         if(!id) throw "You must provide an id to search for";
 
@@ -18,6 +20,7 @@ module.exports = {
         return pet;
     },
 
+    //Adds pet with fields Name, Species, and Color
     async addPet(name, species, color) {
         const petCollection = await Pets();
         const newPet = new Pets({
@@ -36,6 +39,15 @@ module.exports = {
         return pet;
     },
 
+    /**
+     * 
+     * @param {*} id pet id
+     * @param {*} updates object of pets changed attribs i.e.
+     *      {
+     *          hunger: 98,
+     *          thirst: 98
+     *      }
+     */
     async updateSpecPet(id, updates){
         if (!id) throw "You must provide id";
 
@@ -53,7 +65,7 @@ module.exports = {
 
         return await this.getPetById(id);
     },
-
+    //Removes pet
     async removePet(id) {
         if (!id) throw "You must provide an id to search for";
     
