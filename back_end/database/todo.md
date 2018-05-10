@@ -14,7 +14,7 @@
     "userName": "derk123",
     "hashedPassword":"$2a$08$XdvNkfdNIL8Fq7l8xsuIUeSbNOFgK0M0iV5HOskfVn7.PWncShU.O",
     "petId":"c5d0fd67-7977-4fc5-9088-33d0347c932b",
-    "newUser": "0",
+    "newUser": false,
     "lastLogin": 1525970283406
 }
 ```
@@ -29,7 +29,8 @@
     "age": "4",
     "hunger": "5",
     "thirst": "3",
-    "sick": "0"
+    "sick": false,
+    "alive": true
 }
 ```
 
