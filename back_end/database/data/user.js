@@ -90,7 +90,7 @@ module.exports = {
             { new: true } // Returns new object
         );
         if (!updatedUser)
-            throw Error(`Pet does not exist! (ID: ${id})`);
+            throw Error(`User does not exist! (ID: ${id})`);
 
         return await this.getUserById(id);
     },

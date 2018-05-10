@@ -33,7 +33,7 @@ var data = [
                 'userName': 'derk123',
                 'hashedPassword':'$2a$08$XdvNkfdNIL8Fq7l8xsuIUeSbNOFgK0M0iV5HOskfVn7.PWncShU.O',
                 'petId':'c5d0fd67-7977-4fc5-9088-33d0347c932b',
-                'newUser': false,
+                'newUser': true,
                 'lastLogin': 1525970283406
             }
         ]
