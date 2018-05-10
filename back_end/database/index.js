@@ -8,13 +8,9 @@ mongoose.Promise = global.Promise;
 
 // Try connecting, or create a connection...
 try {
-	mongoose.connect(MONGO_URL, {
-		useMongoClient: true
-	});
+	mongoose.connect(MONGO_URL);
 } catch (err) {
-	mongoose.createConnection(MONGO_URL, {
-		useMongoClient: true
-	});
+	mongoose.createConnection(MONGO_URL);
 }
 
 // Tell me what happens
