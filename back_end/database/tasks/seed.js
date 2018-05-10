@@ -16,7 +16,7 @@ seeder.connect(MONGO_URL, function() {
  
     // Callback to populate DB once collections have been cleared
     seeder.populateModels(data, function() {
-    //   seeder.disconnect();
+      seeder.disconnect();
     });
 
   });
