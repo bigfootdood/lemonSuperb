@@ -8,7 +8,7 @@ const userSchema = new Schema({
         userName: {type: String, required: true},
         hashedPassword: {type: String, required: true},
         petId: String,
-        newUser: Boolean,
+        newUser: {type: Boolean, default: true},
         lastLogin: {type: Date, default: Date.now}
 });                                         
 
