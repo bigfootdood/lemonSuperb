@@ -7,12 +7,12 @@ seeder.connect(MONGO_URL, function() {
  
   // Load Mongoose models
   seeder.loadModels([
-    'models/habitat.js',
+    'models/pet.js',
     'models/user.js'
   ]);
  
   // Clear specified collections
-  seeder.clearModels(['Habitats', 'Users'], function() {
+  seeder.clearModels(['Pets', 'Users'], function() {
  
     // Callback to populate DB once collections have been cleared
     seeder.populateModels(data, function() {
