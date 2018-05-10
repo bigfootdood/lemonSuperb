@@ -9,7 +9,8 @@ const userSchema = new Schema(
         userName: {type: String, required: true},
         hashedPassword: {type: String, required: true},
         petId: String,
-        newUser: Boolean
+        newUser: Boolean,
+        lastLogin: {type: Date, default: Date.now}
 });
 
 var User = mongoose.model('User', userSchema);

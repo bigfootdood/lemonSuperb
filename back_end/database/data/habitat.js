@@ -23,7 +23,7 @@ module.exports = {
         const newHabitat = new Habitats({
             name,
             background,
-            pets_in_habitat = []
+            pet_in_habitat
         });
         
         const insertInfo = await habitatCollection.insertOne(newHabitat);
