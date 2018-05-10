@@ -1,5 +1,5 @@
 var seeder = require('mongoose-seed');
-const config = require('./config');
+const config = require('../config');
 
 const MONGO_URL = config.serverUrl + config.dbName;
 // Connect to MongoDB via Mongoose
