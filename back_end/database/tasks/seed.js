@@ -12,7 +12,7 @@ seeder.connect(MONGO_URL, function() {
   ]);
  
   // Clear specified collections
-  seeder.clearModels(['Pets', 'Users'], function() {
+  seeder.clearModels(['Pet', 'User'], function() {
  
     // Callback to populate DB once collections have been cleared
     seeder.populateModels(data, function() {
