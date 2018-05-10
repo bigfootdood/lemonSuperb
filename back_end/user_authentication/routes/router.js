@@ -1,8 +1,8 @@
 var express = require('express');
 var passport = require('passport');
-var local = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
-var user = require('../database/models/user');
+var user = require('../../database/models/user');
 
 const isAuthUser = (req, res, next) => {
 	if (req.isAuthenticated()) {
@@ -36,11 +36,10 @@ router.post(
 	})
 );
 
-passport.use(
-	new LocalStrategy(async (username, password, done) => {
+passport.use(new LocalStrategy(function (username, password, done) {
 		try {
-			const user = await User.findUserByName(username);
-			const isGood = await user.checkPassword(password);
+			const user =  User.findUserByName(username);
+			const isGood = user.checkPassword(password);
 			if (!isGood) throw 'Incorrect Password.';
 			return done(null, user);
 		} catch (err) {
@@ -54,9 +53,9 @@ passport.serializeUser((user, done) => {
 	done(null, user._id);
 });
 
-passport.deserializeUser(async (id, done) => {
+passport.deserializeUser(function (id, done) {
 	try {
-		const user = await User.findUserById(id);
+		const user = User.findUserById(id);
 		done(null, user);
 	} catch (err) {
 		done(err);
