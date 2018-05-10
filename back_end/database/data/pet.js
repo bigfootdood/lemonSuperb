@@ -27,7 +27,7 @@ module.exports = {
             color
         });
         
-		await newRecipe.save(); // Will throw if anything types are bad
+		await newPet.save(); // Will throw if anything types are bad
 
     },
 
