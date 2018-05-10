@@ -1,0 +1,26 @@
+{
+  "name": "user_authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.0.8",
+    "mongoose": "^5.0.18",
+    "passport": "^0.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigfootdood/lemonSuperb.git"
+  },
+  "author": "Raul Camilo 10407291",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigfootdood/lemonSuperb/issues"
+  },
+  "homepage": "https://github.com/bigfootdood/lemonSuperb#readme"
+}
