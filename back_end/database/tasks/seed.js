@@ -25,7 +25,7 @@ seeder.connect(MONGO_URL, function() {
 // Data array containing seed data - documents organized by Model
 var data = [
     {
-        'model': 'Users',
+        'model': 'User',
         'documents': [
             {
                 '_id':'7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310',
@@ -39,7 +39,7 @@ var data = [
         ]
     },
     {
-        'model': 'Pets',
+        'model': 'Pet',
         'documents': [
             {
                 "name":"Franky",
