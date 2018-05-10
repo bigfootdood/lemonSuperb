@@ -9,9 +9,7 @@ const userSchema = new Schema(
         userName: {type: String, required: true},
         hashedPassword: {type: String, required: true},
         petIds: {
-			type: [String],
-			require: [true, 'not a valid string array']
-		}
+            type: [String]}
 });
 
 var User = mongoose.model('User', userSchema);
