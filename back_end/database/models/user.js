@@ -5,11 +5,11 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
     {
         _id: { type: String, default: uuidv4 },
-        sessionId: {type: String},
+        sessionId: String,
         userName: {type: String, required: true},
         hashedPassword: {type: String, required: true},
-        petIds: {
-            type: [String]}
+        petId: String,
+        newUser: Boolean
 });
 
 var User = mongoose.model('User', userSchema);
