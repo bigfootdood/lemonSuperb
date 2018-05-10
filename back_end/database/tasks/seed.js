@@ -50,7 +50,8 @@ var data = [
                 "hunger": 5,
                 "thirst": 3,
                 "sick": false,
-                "alive": true
+                "alive": true,
+                "habitat": 0
             }
         ]
     }
