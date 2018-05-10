@@ -45,13 +45,13 @@ module.exports = {
 
         if (!updates) throw "You must provide updated data";
 
-        const updatedPet = { 
+        const updates = { 
             $set : updates
             
         }
         const updatedPet = await Pets.findOneAndUpdate(
             { _id: id},
-            updatedPet,
+            updates,
             { new: true } // Returns new object
         );
         if (!updatedPet)
