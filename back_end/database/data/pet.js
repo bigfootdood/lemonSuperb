@@ -63,7 +63,7 @@ module.exports = {
     async removePet(id) {
         if (!id) throw "You must provide an id to search for";
     
-        const deletionInfo = await Pets.removeOne({ _id: id });
+        const deletionInfo = await Pets.deleteOne({ _id: id });
     
         if (deletionInfo.deletedCount === 0) {
           throw `Could not delete pet with id of ${id}`;
