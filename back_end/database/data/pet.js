@@ -12,9 +12,7 @@ module.exports = {
     async getPetById(id){
         if(!id) throw "You must provide an id to search for";
 
-        const petCollection = await Pets();
-
-        const pet = await petCollection.findOne({_id: id});
+        const pet = await Pets.findOne({_id: id});
 
         if (pet === null) throw "No pet with that id";
         return pet;
@@ -22,14 +20,13 @@ module.exports = {
 
     //Adds pet with fields Name, Species, and Color
     async addPet(name, species, color) {
-        const petCollection = await Pets();
         const newPet = new Pets({
             name,
             species,
             color
         });
         
-        const insertInfo = await petCollection.insertOne(newPet);
+        const insertInfo = await Pets.insertOne(newPet);
        
         if (insertInfo.insertedCount === 0) throw "Could not add pet";
         
@@ -53,12 +50,11 @@ module.exports = {
 
         if (!updates) throw "You must provide updated data";
 
-        const petCollection = await Pets();
         const updatedPet = { 
             $set : updates
             
         }
-        const updatedInfo = await petCollection.updateOne({ _id: id }, updatedPet);
+        const updatedInfo = await Pets.updateOne({ _id: id }, updatedPet);
         if (updatedInfo.modifiedCount === 0) {
             throw "could not update pet successfully";
         }
@@ -69,8 +65,7 @@ module.exports = {
     async removePet(id) {
         if (!id) throw "You must provide an id to search for";
     
-        const petCollection = await Pets();
-        const deletionInfo = await petCollection.removeOne({ _id: id });
+        const deletionInfo = await Pets.removeOne({ _id: id });
     
         if (deletionInfo.deletedCount === 0) {
           throw `Could not delete pet with id of ${id}`;
