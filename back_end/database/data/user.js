@@ -23,11 +23,11 @@ module.exports = {
     },
 
     //adds user to DB
-    async addUser(userN, password) {
+    async addUser(userName, hashedPassword) {
 
         const newUser = new Users({
-            userN,
-            password
+            userName,
+            hashedPassword
         });
         
 		await newUser.save(); // Will throw if anything types are bad
