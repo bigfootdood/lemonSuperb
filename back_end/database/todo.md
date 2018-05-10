@@ -14,7 +14,8 @@
     "userName": "derk123",
     "hashedPassword":"$2a$08$XdvNkfdNIL8Fq7l8xsuIUeSbNOFgK0M0iV5HOskfVn7.PWncShU.O",
     "petId":"7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
-    "newUser": "0"
+    "newUser": "0",
+    "lastLogin": 1525970283406
 }
 ```
 
