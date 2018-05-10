@@ -3,7 +3,7 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
-var user = require('../../database/models/user');
+var user = require('../user');
 
 const isAuthUser = (req, res, next) => {
 	if (req.isAuthenticated()) {
