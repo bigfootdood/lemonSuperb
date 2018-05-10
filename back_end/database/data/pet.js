@@ -54,8 +54,8 @@ module.exports = {
             updatedPet,
             { new: true } // Returns new object
         );
-        if (!replacedRecipe)
-            throw Error(`Recipe does not exist! (ID: ${req.params.id})`);
+        if (!updatedPet)
+            throw Error(`Pet does not exist! (ID: ${id})`);
 
         return await this.getPetById(id);
     },
