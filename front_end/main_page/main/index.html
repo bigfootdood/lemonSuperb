@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content=";">
+
+    <title>Main Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+    </style>
+
+  </head>
+
+  <body ontouchstart="">
+    <script src="js/three.min.js"></script>
+ 		<script src="js/app.js"></script>
+ 		<script src="js/WebVR.js"></script>
+
+    <div class="scene">
+      <script>
+
+        var loader = new THREE.FileLoader();
+        loader.load( 'app.json', function ( text ) {
+
+          var player = new APP.Player();
+          player.load( JSON.parse( text ) );
+          player.setSize( window.innerWidth, window.innerHeight );
+          player.play();
+
+          document.body.appendChild( player.dom );
+
+          window.addEventListener( 'resize', function () {
+            player.setSize( window.innerWidth, window.innerHeight );
+          } );
+
+        } );
+      </script>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="mt-5">Logo</h1>
+              <p class="lead">Here is where you will access settings</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Change Habitat </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Logout</a>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 text-center">
+          <h1 class="mt-5">The Virtual Pet</h1>
+          <p class="lead">Here is where 3d game will run</p>
+          <p class="lead">Will be padded blank space for three.js background</p>
+        </div>
+        <div class="col-sm-3 text-right">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="mt-5">Stats</h1>
+              <p class="lead">Here is where you will see pet's stats and access food/controls</p>
+            </div>
+          </div>
+          <div class="card text-left">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <button type="button" class="btn btn-primary">Food</button>
+                </li>
+                <li class="list-group-item">
+                  <button type="button" class="btn btn-primary">Water</button>
+                </li>
+                <li class="list-group-item">
+                  <button type="button" class="btn btn-primary">Play</button>
+                </li>
+                <li class="list-group-item">
+                  <button type="button" class="btn btn-primary">Medicine</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
