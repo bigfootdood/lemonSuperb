@@ -3,20 +3,20 @@ const config = require('../config');
 
 const MONGO_URL = config.serverUrl + config.dbName;
 // Connect to MongoDB via Mongoose
-seeder.connect(MONGO_URL, function() {
+seeder.connect(MONGO_URL, async function() {
  
   // Load Mongoose models
-  seeder.loadModels([
+  await seeder.loadModels([
     '../database/models/pet.js',
     '../database/models/user.js'
   ]);
  
   // Clear specified collections
-  seeder.clearModels(['Pet', 'User'], function() {
+  await seeder.clearModels(['Pet', 'User'], async function() {
  
     // Callback to populate DB once collections have been cleared
-    seeder.populateModels(data, function() {
-      seeder.disconnect();
+    await seeder.populateModels(data, async function() {
+      await seeder.disconnect();
     });
 
   });
