@@ -1,7 +1,7 @@
-const habitatData = require("./habitat");
+const petData = require("./pet");
 // const userData = require("./users");
 
 module.exports = {
-    habitat: habitatData
+    pet: petData
     // users: userData
 };
