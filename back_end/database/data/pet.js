@@ -20,20 +20,15 @@ module.exports = {
 
     //Adds pet with fields Name, Species, and Color
     async addPet(name, species, color) {
+
         const newPet = new Pets({
             name,
             species,
             color
         });
         
-        const insertInfo = await Pets.insertOne(newPet);
-       
-        if (insertInfo.insertedCount === 0) throw "Could not add pet";
-        
-        const newId = insertInfo.insertedId;
+		await newRecipe.save(); // Will throw if anything types are bad
 
-        const pet = await this.getPetById(newId);
-        return pet;
     },
 
     /**
@@ -54,10 +49,13 @@ module.exports = {
             $set : updates
             
         }
-        const updatedInfo = await Pets.updateOne({ _id: id }, updatedPet);
-        if (updatedInfo.modifiedCount === 0) {
-            throw "could not update pet successfully";
-        }
+        const updatedPet = await Pets.findOneAndUpdate(
+            { _id: id},
+            updatedPet,
+            { new: true } // Returns new object
+        );
+        if (!replacedRecipe)
+            throw Error(`Recipe does not exist! (ID: ${req.params.id})`);
 
         return await this.getPetById(id);
     },
