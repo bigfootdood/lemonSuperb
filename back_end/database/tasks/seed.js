@@ -47,11 +47,12 @@ var data = [
                 "species": 3,
                 "color": "#8B4513",
                 "age": 4,
-                "hunger": 5,
-                "thirst": 3,
+                "hunger": 100,
+                "thirst": 100,
                 "sick": false,
                 "alive": true,
-                "habitat": 0
+                "habitat": 0,
+                "mentalHealth":100
             }
         ]
     }
