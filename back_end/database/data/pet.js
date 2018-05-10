@@ -65,7 +65,7 @@ module.exports = {
     
         const deletionInfo = await Pets.deleteOne({ _id: id });
     
-        if (deletionInfo.deletedCount === 0) {
+        if (deletionInfo.result.n) {
           throw `Could not delete pet with id of ${id}`;
         }
     }
