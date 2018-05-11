@@ -53,6 +53,13 @@ canvas {
   color:black;
 }
 
+button{
+  text-decoration: none;
+}
+.btn-hover{
+  text-decoration: none;
+}
+
 /*Main title size*/
 h1.mainTitle{
   font-size: 50px;
