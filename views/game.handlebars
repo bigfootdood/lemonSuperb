@@ -1,3 +1,4 @@
+<script src="js/stats.js"></script>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3">
@@ -46,16 +47,16 @@
           <h1>Controls</h1>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <button type="button" class="btn btn-primary">Food</button>
+              <button type="button" onclick="move('hunger')" class="btn btn-primary">Food</button>
             </li>
             <li class="list-group-item">
-              <button type="button" class="btn btn-primary">Water</button>
+              <button type="button" onclick="move('thirst')" class="btn btn-primary">Water</button>
             </li>
             <li class="list-group-item">
-              <button type="button" class="btn btn-primary">Play</button>
+              <button type="button" onclick="move('mental_health')" class="btn btn-primary">Play</button>
             </li>
             <li class="list-group-item">
-              <button type="button" class="btn btn-primary">Medicine</button>
+              <button type="button" onclick="heal('health_status')" class="btn btn-primary">Medicine</button>
             </li>
           </ul>
         </div>
@@ -73,21 +74,49 @@
         <div class="card-body">
           <h1>Stats</h1>
           <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" id="hunger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <p>Food</p>
+          <p>Hunger</p>
           <div class="progress">
-            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-info" id="thirst" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <p>Thirst</p>
           <div class="progress">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-warning" id="mental_health" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <p>Mental Health</p>
-          <span class="badge badge-success">Healthy</span>
-          <span class="badge badge-danger">Sick</span>
+          <div id="health_status">
+            <span  class="badge badge-danger">Sick</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script src="js/three.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/WebVR.js"></script>
+
+<script>
+
+  var loader = new THREE.FileLoader();
+  loader.load( 'spinning_background.json', function ( text ) {
+
+    var player = new APP.Player();
+    player.load( JSON.parse( text ) );
+    player.setSize( window.innerWidth, window.innerHeight );
+    player.play();
+
+    document.body.appendChild( player.dom );
+
+    window.addEventListener( 'resize', function () {
+      player.setSize( window.innerWidth, window.innerHeight );
+    } );
+
+  } );
+
+</script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

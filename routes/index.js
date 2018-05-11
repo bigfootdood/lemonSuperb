@@ -23,7 +23,7 @@ const constructorMethod = app => {
   app.post("/new_user", function(req, res) {
     res.redirect('/new_user');
   });
-  
+
   app.get("/new_user", (req, res) => {
     //res.sendFile(path.resolve("public/login2.html"));
     res.render('NewUserLogin');
@@ -52,7 +52,6 @@ const constructorMethod = app => {
     //res.sendFile(path.resolve("public/selection.html"));
     res.render('phSelect')
   });
-
   //main page routes
   app.post("/main", function(req, res) {
     // passport.authenticate('local', { successRedirect: '/main',
@@ -68,6 +67,7 @@ const constructorMethod = app => {
     //cookie here
     res.redirect('/main');
   });
+
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
     //res.sendFile(path.resolve("public/main.html"));
