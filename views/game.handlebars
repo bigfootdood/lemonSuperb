@@ -1,8 +1,93 @@
-<h1>User: </h1>
-<p>pet name: </p>
-<p>pet species: </p>
-<p>pet color: </p>
-<p>habitat: </p>
-<p>pet hunger: </p>
-<p>pet thirst: </p>
-<p>pet mental health: </p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h1>Logo</h1>
+          <p class="lead">Here is where you will access settings</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Change Habitat
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <form action="/main" name="habitat_select" method="post">
+              <div class="form-check">
+                <input type="radio" id="forest"class="form-check-input" name="habitat" value="0">
+                <label for="forest">Forest</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="beach" class="form-check-input" name="habitat" value="1">
+                <label for="beach">Beach</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="Snow" class="form-check-input" name="habitat" value="2">
+                <label for="snow">Snow Forest</label>
+              </div>
+              <button type="submit" form="habitat_select" name="button" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 text-center">
+
+    </div>
+    <div class="col-sm-3 ">
+
+      <div class="card text-left">
+        <div class="card-body">
+          <h1>Controls</h1>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <button type="button" class="btn btn-primary">Food</button>
+            </li>
+            <li class="list-group-item">
+              <button type="button" class="btn btn-primary">Water</button>
+            </li>
+            <li class="list-group-item">
+              <button type="button" class="btn btn-primary">Play</button>
+            </li>
+            <li class="list-group-item">
+              <button type="button" class="btn btn-primary">Medicine</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row" id="statusbar">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4 ">
+      <div class="card">
+        <div class="card-body">
+          <h1>Stats</h1>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p>Food</p>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p>Thirst</p>
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p>Mental Health</p>
+          <span class="badge badge-success">Healthy</span>
+          <span class="badge badge-danger">Sick</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
