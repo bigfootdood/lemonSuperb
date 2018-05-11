@@ -38,6 +38,7 @@ const constructorMethod = app => {
       //add new_username
       //add unhashed new_password to db for now (we will fix it with passport later)
       //generate unique user id with uuid
+    let user = back_end.createUser(new_username, new_password);
     //here is where we will eventually create a cookie
     res.redirect('/selection');
   });
@@ -76,7 +77,8 @@ const constructorMethod = app => {
 
     //update database here
     //adopt pet using above variables
-
+    //make current user adopt created pet, get user from cookie then
+    //
     res.redirect('/main');
   });
 };

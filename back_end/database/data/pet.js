@@ -4,9 +4,17 @@ module.exports = {
     //Gets all pets
     async getAllPets() {
         const petList = await Pets.find();
-        
+
         return petList;
     },
+
+    async getPet(pet_name) {
+        if(!pet_name) throw "Must provide a name";
+        const pet = await Users.findOne({name: pet_name});
+
+        if (pet === null) throw "No pet with that name";
+        return pet;
+     },
 
     //Gets pet by ID
     async getPetById(id){
@@ -26,13 +34,13 @@ module.exports = {
             species,
             color
         });
-        
+
 		await newPet.save(); // Will throw if anything types are bad
 
     },
 
     /**
-     * 
+     *
      * @param {*} id pet id
      * @param {*} updates object of pets changed attribs i.e.
      *      {
@@ -45,9 +53,9 @@ module.exports = {
 
         if (!updates) throw "You must provide updated data";
 
-        const updateObj = { 
+        const updateObj = {
             $set : updates
-            
+
         }
         const updatedPet = await Pets.findOneAndUpdate(
             { _id: id},
@@ -62,12 +70,11 @@ module.exports = {
     //Removes pet
     async removePet(id) {
         if (!id) throw "You must provide an id to search for";
-    
+
         const delObj = await Pets.find({ _id: id}).remove().exec();
-    
+
         if (delObj === null) {
           throw `Could not delete pet with id of ${id}`;
         }
     }
 };
-
