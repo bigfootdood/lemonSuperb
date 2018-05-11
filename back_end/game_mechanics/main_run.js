@@ -77,7 +77,7 @@ async function main(){
   let mentalHealth =  pet['mentalHealth']
   mentalHealth -= (diff_hours*100/8)
 
-  let pet = database.pet.updateSpecPet(pet["_id"], {"hunger": hunger, "thirst": thirst, "mentalHealth": mentalHealth});
+  pet = database.pet.updateSpecPet(pet["_id"], {"hunger": hunger, "thirst": thirst, "mentalHealth": mentalHealth});
   // console.log("Hunger: " + hunger);
   // console.log("Thirst: " + thirst);
   // console.log("mentalHealth: " + mentalHealth);
@@ -119,24 +119,36 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function createUser(userName, hashedPassword){
+async function createUser(userName, hashedPassword){
   await database.user.addUser(userName, hashedPassword);
   return await database.user.getUser(userName);
 }
 
-function addPetToUser(user_id, pet_id){
+async function addPetToUser(user_id, pet_id){
   return await database.user.adoptPet(user_id, pet_id);
 }
 
-function createPet(pet_name, species, color, habitat){
+async function createPet(pet_name, species, color, habitat){
   await database.pet.addPet(pet_name, species, color);
   let pet = await database.pet.getPet(pet_name);
-  let pet = await database.pet.updateSpecPet(pet["_id"], {"habitat": habitat});
+  pet = await database.pet.updateSpecPet(pet["_id"], {"habitat": habitat});
   return pet;
+}
+
+async function testing_print(){
+  let pets = await database.pet.getAllPets();
+  let users = await database.user.getAllUsers();
+  console.log("Pets: ");
+  console.log(pets);
+  console.log("Users: ");
+  console.log(users);
 }
 
 module.exports.main = main;
 module.exports.createUser = createUser;
 module.exports.addPetToUser = addPetToUser;
 module.exports.createPet = createPet;
+
+
+module.exports.testing_print = testing_print;
 // main()

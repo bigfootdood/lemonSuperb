@@ -29,7 +29,7 @@ const constructorMethod = app => {
   });
 
   //pet/habitat selection routes
-  app.post("/selection", function(req, res) {
+  app.post("/selection", async function(req, res) {
     var new_username = req.body.newUserEmail;
     console.log(new_username);
     var new_password = req.body.newPassword; //to be secured using passport with raul's code
@@ -38,7 +38,12 @@ const constructorMethod = app => {
       //add new_username
       //add unhashed new_password to db for now (we will fix it with passport later)
       //generate unique user id with uuid
-    let user = back_end.createUser(new_username, new_password);
+    console.log("About to create User");
+    let user = await back_end.createUser(new_username, new_password);
+    console.log("Created User: ");
+    await back_end.testing_print();
+    console.log("New User ID: " + user["_id"]);
+    console.log("");
     //here is where we will eventually create a cookie
     res.redirect('/selection');
   });
@@ -65,7 +70,7 @@ const constructorMethod = app => {
     res.render('game');
   });
   //main from new user
-  app.post("/new_main", function(req, res) {
+  app.post("/new_main", async function(req, res) {
     var species = req.body.shape;
     var habitat = req.body.habitat;
     var color = req.body.color; //color being stored as int
@@ -74,11 +79,17 @@ const constructorMethod = app => {
     // console.log(habitat);
     // console.log(name);
     // console.log(color);
-    let pet = back_end.createPet(name, species, color, habitat);
+
+    console.log("About to create Pet: ");
+    let new_pet = await back_end.createPet(name, species, color, habitat);
+    console.log("Created pet, new DB: ");
     //update database here
     //adopt pet using above variables
     //make current user adopt created pet, get user from cookie then
-    let user = addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", pet["_id"]);
+    console.log("About to add new pet to user: " + "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
+    let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
+    console.log("Added pet to user, new DB: ");
+    await back_end.testing_print();
     res.redirect('/main');
   });
 };

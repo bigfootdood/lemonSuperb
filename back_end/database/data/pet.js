@@ -10,7 +10,7 @@ module.exports = {
 
     async getPet(pet_name) {
         if(!pet_name) throw "Must provide a name";
-        const pet = await Users.findOne({name: pet_name});
+        const pet = await Pets.findOne({name: pet_name});
 
         if (pet === null) throw "No pet with that name";
         return pet;
