@@ -1,11 +1,11 @@
 var express = require('express');
 var passport = require('passport');
 var mongoose = require('mongoose');
+var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 var uuid = require('uuid/v4');
 var User = require('../user');
-var bcrypt = require('bcryptjs');
 var userDB = require('../../database/data/user');
 
 const isAuthUser = (req, res, next) => {
