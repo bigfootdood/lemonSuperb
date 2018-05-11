@@ -1,5 +1,5 @@
 var seeder = require('mongoose-seed');
-const config = require('../config');
+const config = require('../back_end/database/config');
 
 const MONGO_URL = config.serverUrl + config.dbName;
 // Connect to MongoDB via Mongoose
@@ -7,8 +7,8 @@ seeder.connect(MONGO_URL, async function() {
  
   // Load Mongoose models
   await seeder.loadModels([
-    '..back_end/database/models/pet.js',
-    '..back_end/database/models/user.js'
+    './back_end/database/models/pet.js',
+    './back_end/database/models/user.js'
   ]);
  
   // Clear specified collections
