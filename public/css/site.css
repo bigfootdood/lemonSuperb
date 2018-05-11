@@ -64,3 +64,12 @@ button{
 h1.mainTitle{
   font-size: 50px;
 }
+
+
+h1.paddingPlease{
+  padding-top: 20px;
+}
+
+input.pad{
+  padding-top: 10px;
+}
