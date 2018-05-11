@@ -30,8 +30,10 @@ const constructorMethod = app => {
 
   //pet/habitat selection routes
   app.post("/selection", function(req, res) {
-    var username;
-    var password;
+    var new_username = req.body.newUserEmail;
+    console.log(new_username);
+    var new_password = req.body.newPassword; //to be secured using passport with raul's code
+    console.log(new_password);
     //Add new user here!
       //add new username
       //add unhash password to db for now (we will fix it with passport later)
@@ -46,7 +48,12 @@ const constructorMethod = app => {
 
   //main page routes
   app.post("/main", function(req, res) {
+    var username = req.body.loginEmail;
+    console.log(username);
+    var password = req.body.password;
+
     //Here is were we do user authentication
+
     //cookie here
     res.redirect('/main');
   });
