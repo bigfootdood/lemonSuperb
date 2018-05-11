@@ -12,7 +12,7 @@
                   <h1>HELLO NEW USER:</h1>
                   <!-- Enter Email -->
                   <label for="userEmail">Enter Your Email Address:</label>
-                  <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input name="newUserEmail" type="email" class="form-control" id="newEmail" aria-describedby="emailHelp" placeholder="Enter email">
                   <label for="userEmail">Confirm Email Address:</label>
                   <!-- Verify Email  -->
                   <input type="email" class="form-control" id="verifiedEmail" aria-describedby="emailHelp" placeholder="Re-enter email">
@@ -22,11 +22,11 @@
                 <div class="form-group">
                   <!-- Password 1  -->
                   <label for="pass1">Enter Your Password:</label>
-                  <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
+                  <input name="newPassword" type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
                   <!-- Password 2 for verification -->
                   <label for="pass2">Re-enter Your Password:</label>
 
-                  <input type="password" class="form-control" name="pass2" id="pass2" onkeyup="checkPass(); return false;" placeholder="Re-enter Password">
+                  <input  type="password" class="form-control" name="pass2" id="pass2" onkeyup="checkPass(); return false;" placeholder="Re-enter Password">
 
                   <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else either.</small>
                   <span id="confirmMessage" class="confirmMessage"></span>
