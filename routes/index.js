@@ -23,9 +23,7 @@ const constructorMethod = app => {
   app.post("/new_user", function(req, res) {
     res.redirect('/new_user');
   });
-//   app.post("/new_user",
-//
-// );
+  
   app.get("/new_user", (req, res) => {
     //res.sendFile(path.resolve("public/login2.html"));
     res.render('NewUserLogin');

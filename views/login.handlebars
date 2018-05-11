@@ -5,7 +5,7 @@
       <div class="card">
         <img src="rsz_lemonboi.png" class="card-img-top" alt="A picture of a cute little lemon boi">
         <div class="card-body">
-          
+
           <form name="form1" action ="/login" method="post">
             <div class="form-group">
               <h1>Log In</h1>
@@ -49,6 +49,30 @@
     </div>
   </div>
 </div>
+<script src="js/three.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/WebVR.js"></script>
+
+<script>
+
+  var loader = new THREE.FileLoader();
+  loader.load( 'spinning_background.json', function ( text ) {
+
+    var player = new APP.Player();
+    player.load( JSON.parse( text ) );
+    player.setSize( window.innerWidth, window.innerHeight );
+    player.play();
+
+    document.body.appendChild( player.dom );
+
+    window.addEventListener( 'resize', function () {
+      player.setSize( window.innerWidth, window.innerHeight );
+    } );
+
+  } );
+
+</script>
+
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
