@@ -6,6 +6,7 @@ var router = express.Router();
 var uuid = require('uuid/v4');
 var User = require('../user');
 var bcrypt = require('bcryptjs');
+var userDB = require('../../database/data/user');
 
 const isAuthUser = (req, res, next) => {
 	if (req.isAuthenticated()) {
@@ -67,10 +68,9 @@ passport.use(
     if(User.findUserByName(username)) {
       throw "Username taken";
     } else {
-      var user = new User.constructor({_id : uuidv4(), sessionId : "", userName : usernameField, hashedPassword : bcrypt.hashpw(passwordField), petId : "", newUser : true, lastLogin : Date.now});
-      //add to db
+      userDBuserDB.addUser(username, bcrypt.hashpw(password));
     }
-    return NULL; //will change
+    return NULL;
   })
 );
 

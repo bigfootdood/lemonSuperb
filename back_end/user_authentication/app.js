@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname + 'public')));
 
 app.use(
   session({
-    secret: 's3cr3t',
+    secret: 'secret',
     saveUninitialized: true,
     resave: true
   })
