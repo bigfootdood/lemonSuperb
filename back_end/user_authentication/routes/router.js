@@ -3,8 +3,9 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
-var uuid = require('uuid/v1');
+var uuid = require('uuid/v4');
 var User = require('../user');
+var bcrypt = require('bcryptjs');
 
 const isAuthUser = (req, res, next) => {
 	if (req.isAuthenticated()) {
@@ -55,17 +56,42 @@ router.post(
 	})
 );
 
-passport.use(new LocalStrategy(function (username, password, done) {
-		try {
-			const user =  User.findUserByName(username);
-			const isGood = user.checkPassword(password);
-			if (!isGood) throw 'Incorrect Password.';
-			return done(null, user);
-		} catch (err) {
-			return done(null, false, { message: err });
-		}
-	})
+passport.use(
+  '/newUserLogin',
+  new LocalStrategy({
+    usernameField : 'userName',
+    passwordField : 'password',
+    passReqToCallback : true
+  },
+  function(req, username, password, done) {
+    if(User.findUserByName(username)) {
+      throw "Username taken";
+    } else {
+      var user = new User.constructor({_id : uuidv4(), sessionId : "", userName : usernameField, hashedPassword : bcrypt.hashpw(passwordField), petId : "", newUser : true, lastLogin : Date.now});
+      //add to db
+    }
+    return NULL; //will change
+  })
 );
+
+passport.use(
+  '/login',
+  new LocalStrategy({
+    usernameField : 'userName',
+    passwordField : 'password',
+    passReqToCallback : true
+  },
+  function (req, username, password, done) {
+	   if(User.findUserByName(username)) {
+       var user = User.findUserByName(username)
+       if(!bcrypt.compare(password, user.hashedPassword)) {
+         throw "Incorrect password";
+       }
+     } else {
+       throw "No such username found";
+     }
+   }
+));
 
 // Serialize and Deserialize is used for sessions.
 passport.serializeUser((user, done) => {
