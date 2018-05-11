@@ -62,10 +62,10 @@ async function main(){
   console.log(curr_time);
   console.log(last_time);
   console.log(diff_hours);
-
+  //
 
   let pet = await database.pet.getPetById(user['petId'])
-  console.log(pet);
+  // console.log(pet);
   if(pet["sick"]){
     diff_hours = diff_hours * 3
   }
@@ -77,9 +77,9 @@ async function main(){
   let mentalHealth =  pet['mentalHealth']
   mentalHealth -= (diff_hours*100/8)
 
-  console.log("Hunger: " + hunger);
-  console.log("Thirst: " + thirst);
-  console.log("mentalHealth: " + mentalHealth);
+  // console.log("Hunger: " + hunger);
+  // console.log("Thirst: " + thirst);
+  // console.log("mentalHealth: " + mentalHealth);
 
 
 
@@ -98,7 +98,7 @@ async function main(){
     }
   }
 
-  console.log(pet);
+  // console.log(pet);
 
   //update values based on difference
   //get pet_hunger
@@ -118,8 +118,6 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-module.exports = {
-  script: run_main()
-}
+module.exports.main = main;
 
 // main()

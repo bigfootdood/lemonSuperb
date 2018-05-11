@@ -16,7 +16,8 @@ const constructorMethod = app => {
     //res.render('default');
   });
   app.get("/main", (req, res) => {
-    back_end.script.run_main();
+    console.log("Shouldnt be here");
+    back_end.run_main(); //runs the game mechanics script to initialize the instance of the game
     res.sendFile(path.resolve("public/main.html"));
   });
 };
