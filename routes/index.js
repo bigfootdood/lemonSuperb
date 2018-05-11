@@ -26,9 +26,19 @@ const constructorMethod = app => {
     res.sendFile(path.resolve("public/login2.html"));
   });
 
+  //pet/habitat selection routes
+  app.post("/selection", function(req, res) {
+    //Add new user here!
+    res.redirect('/selection');
+  });
+  app.get("/selection", (req, res) => {
+    res.sendFile(path.resolve("public/selection.html"));
+  });
+
   //main page routes
   app.post("/main", function(req, res) {
     console.log(req.body.fname);
+    //Here is were we do user authentication
     res.redirect('/main');
   });
   app.get("/main", (req, res) => {
