@@ -24,7 +24,8 @@ const constructorMethod = app => {
     res.redirect('/new_user');
   });
   app.get("/new_user", (req, res) => {
-    res.sendFile(path.resolve("public/login2.html"));
+    //res.sendFile(path.resolve("public/login2.html"));
+    res.render('NewUserLogin.handlebars');
   });
 
   //pet/habitat selection routes
@@ -34,7 +35,8 @@ const constructorMethod = app => {
     res.redirect('/selection');
   });
   app.get("/selection", (req, res) => {
-    res.sendFile(path.resolve("public/selection.html"));
+    //res.sendFile(path.resolve("public/selection.html"));
+    res.render('phSelect.handlebars')
   });
 
   //main page routes
