@@ -55,24 +55,23 @@
 
 <script>
 
-  var loader = new THREE.FileLoader();
-  loader.load( 'spinning_background.json', function ( text ) {
+    var loader = new THREE.FileLoader();
+    loader.load( 'spinning_background.json', function ( text ) {
 
-    var player = new APP.Player();
-    player.load( JSON.parse( text ) );
-    player.setSize( window.innerWidth, window.innerHeight );
-    player.play();
-
-    document.body.appendChild( player.dom );
-
-    window.addEventListener( 'resize', function () {
+      var player = new APP.Player();
+      player.load( JSON.parse( text ) );
       player.setSize( window.innerWidth, window.innerHeight );
+      player.play();
+
+      document.body.appendChild( player.dom );
+
+      window.addEventListener( 'resize', function () {
+        player.setSize( window.innerWidth, window.innerHeight );
+      } );
+
     } );
 
-  } );
-
 </script>
-
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

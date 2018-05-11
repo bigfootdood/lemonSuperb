@@ -19,3 +19,18 @@ canvas {
 #statusbar{
   padding-top: 20px;
 }
+/*
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}*/
+.background-blur{
+  -webkit-filter: blur(35px);
+  -moz-filter: blur(35px);
+  -o-filter: blur(35px);
+  -ms-filter:blur(35px);
+  filter:blur(35px);
+}
