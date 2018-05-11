@@ -7,15 +7,15 @@
             <img src="rsz_lemonboi.png" class="card-img-top" alt="A picture of a cute little lemon boi">
             <div class="card-body">
 
-              <form action="/NewUserLogin" method="post">
+              <form name="form2" action="/NewUserLogin" method="post">
                 <div class="form-group">
                   <h1>HELLO NEW USER:</h1>
                   <!-- Enter Email -->
                   <label for="userEmail">Enter Your Email Address:</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="email" class="form-control" id="newEmail" aria-describedby="emailHelp" placeholder="Enter email">
                   <label for="userEmail">Confirm Email Address:</label>
                   <!-- Verify Email  -->
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Re-enter email">
+                  <input type="email" class="form-control" id="verifiedEmail" aria-describedby="emailHelp" placeholder="Re-enter email">
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
                 </div>
@@ -39,7 +39,7 @@
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                   <!-- Submit Button  -->
                   <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <button type="submit" form="form2" formaction="/selection" formmethod="post" class="btn btn-secondary">Submit</button>
+                    <button type="submit" form="form2" class="btn btn-secondary">Submit</button>
                   </div>
                 </div>
               </form>
