@@ -1,6 +1,6 @@
 const path = require("path");
 const back_end = require("../back_end/game_mechanics/main_run");
-const passport = require("passport");
+// const passport = require("passport");
 // var fs = require('fs');
 // var fileName = '../public/app.json';
 // var file = require(fileName);
@@ -57,18 +57,18 @@ const constructorMethod = app => {
 
   //main page routes
   app.post("/main", function(req, res) {
-    passport.authenticate('local', { successRedirect: '/main',
-                                     failureRedirect: '/'
-                                     })
-    // var username = req.body.loginEmail;
-    // //console.log(username);
-    // var password = req.body.password;
-    //console.log(password)
+    // passport.authenticate('local', { successRedirect: '/main',
+    //                                  failureRedirect: '/'
+    //                                  })
+    var username = req.body.loginEmail;
+    //console.log(username);
+    var password = req.body.password;
+    // console.log(password)
 
     //Here is were we do user authentication
 
     //cookie here
-    // res.redirect('/main');
+    res.redirect('/main');
   });
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
