@@ -20,14 +20,12 @@ const constructorMethod = app => {
   });
 
   //new user login routes
-  // app.post("/new_user", function(req, res) {
-  //   res.redirect('/new_user');
-  // });
-  app.post("/new_user",
-    passport.authenticate('local', { successRedirect: '/new_user',
-                                     failureRedirect: '/new_user'
-                                     })
-);
+  app.post("/new_user", function(req, res) {
+    res.redirect('/new_user');
+  });
+//   app.post("/new_user",
+//
+// );
   app.get("/new_user", (req, res) => {
     //res.sendFile(path.resolve("public/login2.html"));
     res.render('NewUserLogin');
@@ -59,15 +57,18 @@ const constructorMethod = app => {
 
   //main page routes
   app.post("/main", function(req, res) {
-    var username = req.body.loginEmail;
-    //console.log(username);
-    var password = req.body.password;
+    passport.authenticate('local', { successRedirect: '/main',
+                                     failureRedirect: '/'
+                                     })
+    // var username = req.body.loginEmail;
+    // //console.log(username);
+    // var password = req.body.password;
     //console.log(password)
 
     //Here is were we do user authentication
 
     //cookie here
-    res.redirect('/main');
+    // res.redirect('/main');
   });
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
