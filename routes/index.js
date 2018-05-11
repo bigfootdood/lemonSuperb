@@ -1,5 +1,6 @@
 const path = require("path");
 const back_end = require("../back_end/game_mechanics/main_run");
+
 // var fs = require('fs');
 // var fileName = '../public/app.json';
 // var file = require(fileName);
@@ -11,15 +12,33 @@ const back_end = require("../back_end/game_mechanics/main_run");
 
 
 const constructorMethod = app => {
+
+  //main login route
   app.get("/", (req, res) => {
     res.sendFile(path.resolve("public/login1.html"));
-    //res.render('default');
+  });
+
+  //new user login routes
+  app.post("/new_user", function(req, res) {
+    res.redirect('/new_user');
+  });
+  app.get("/new_user", (req, res) => {
+    res.sendFile(path.resolve("public/login2.html"));
+  });
+
+  //main page routes
+  app.post("/main", function(req, res) {
+    console.log(req.body.fname);
+    res.redirect('/main');
   });
   app.get("/main", (req, res) => {
-    console.log("Shouldnt be here");
-    back_end.run_main(); //runs the game mechanics script to initialize the instance of the game
+    back_end.main(); //runs the game mechanics script to initialize the instance of the game
     res.sendFile(path.resolve("public/main.html"));
   });
+
+
+
+
 };
 
 module.exports = constructorMethod;
