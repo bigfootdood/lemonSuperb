@@ -1,4 +1,6 @@
 const path = require("path");
+const cookieParse = require("cookie-parser");
+const bcrypt = require("bcrypt");
 const back_end = require("../back_end/game_mechanics/main_run");
 // const passport = require("passport");
 // var fs = require('fs');
@@ -16,6 +18,9 @@ const constructorMethod = app => {
   //main login route
   app.get("/", (req, res) => {
     //res.sendFile(path.resolve("public/login1.html"));
+    if(req.cookies.AuthCookie) {
+      res.redirect('/main');
+    }
     res.render('login');
   });
 
@@ -34,13 +39,15 @@ const constructorMethod = app => {
     var new_username = req.body.newUserEmail;
     console.log(new_username);
     var new_password = req.body.newPassword; //to be secured using passport with raul's code
+    hashPass = bcrypt.hashpw(new_password);
     console.log(new_password);
     //Add new user to database here!
       //add new_username
       //add unhashed new_password to db for now (we will fix it with passport later)
       //generate unique user id with uuid
     console.log("About to create User");
-    let user = await back_end.createUser(new_username, new_password);
+    let user = await back_end.createUser(new_username, hashPass);
+    res.cookie("AuthCookie", new_username);
     console.log("Created User: ");
     await back_end.testing_print();
     console.log("New User ID: " + user["_id"]);
@@ -60,12 +67,22 @@ const constructorMethod = app => {
     var username = req.body.loginEmail;
     //console.log(username);
     var password = req.body.password;
+    const hashedPassword = back_end.get_hash(username);
+    bcrypt.compare(password, hashedPassword, function(err, result) {
+      if (!result) {
+        throw "Incorrect Password"; // Change to res.render.fuckoff
+      } else {
+        res.cookie("AuthCookie", username);
+        res.redirect('/main');
+      }
+    }
+
     // console.log(password)
 
     //Here is were we do user authentication
 
     //cookie here
-    res.redirect('/main');
+    //res.redirect('/main');
   });
 
   app.get("/main", (req, res) => {

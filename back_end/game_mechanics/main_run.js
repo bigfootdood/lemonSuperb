@@ -145,11 +145,23 @@ async function testing_print(){
   console.log(users);
 }
 
+async function get_hash(user){
+  // console.log("gottssss herere");
+  let users = database.user.getAllUsers();
+  for (var i = 0; i < users.length; i++) {
+    if(users[i]["username"] == user){
+      return users[i]["hashedPassword"];
+    }
+  }
+  return "";
+}
+
+
 module.exports.main = main;
 module.exports.createUser = createUser;
 module.exports.addPetToUser = addPetToUser;
 module.exports.createPet = createPet;
-
+module.exports.get_hash = get_hash;
 
 module.exports.testing_print = testing_print;
 // main()
