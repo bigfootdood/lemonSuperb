@@ -1,57 +1,57 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="shadow p-3 mb-5 bg-white rounded">
-      <div class="card">
-        <img src="rsz_lemonboi.png" class="card-img-top" alt="A picture of a cute little lemon boi">
-        <div class="card-body">
 
-          <form action="/selection" method="post">
-            <div class="form-group">
-              <h1>HELLO NEW USER:</h1>
-              <!-- Enter Email -->
-              <label for="userEmail">Enter Your Email Address:</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <label for="userEmail">Confirm Email Address:</label>
-              <!-- Verify Email  -->
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Re-enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <!-- Page Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="rsz_lemonboi.png" class="card-img-top" alt="A picture of a cute little lemon boi">
+            <div class="card-body">
+
+              <form name="form2" id="form2" action="/selection" method="post">
+                <div class="form-group">
+                  <h1>HELLO NEW USER:</h1>
+                  <!-- Enter Email -->
+                  <label for="userEmail">Enter Your Email Address:</label>
+                  <input name="newUserEmail" type="email" class="form-control" id="newEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                  <label for="userEmail">Confirm Email Address:</label>
+                  <!-- Verify Email  -->
+                  <input type="email" class="form-control" id="verifiedEmail" aria-describedby="emailHelp" placeholder="Re-enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+                </div>
+                <div class="form-group">
+                  <!-- Password 1  -->
+                  <label for="pass1">Enter Your Password:</label>
+                  <input name="newPassword" type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
+                  <!-- Password 2 for verification -->
+                  <label for="pass2">Re-enter Your Password:</label>
+
+                  <input  type="password" class="form-control" name="pass2" id="pass2" onkeyup="checkPass(); return false;" placeholder="Re-enter Password">
+
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else either.</small>
+                  <span id="confirmMessage" class="confirmMessage"></span>
+                </div>
+                <!-- Remember Me -->
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                </div>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                  <!-- Submit Button  -->
+                  <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="submit" form="form2" class="btn btn-secondary">Submit</button>
+                  </div>
+                </div>
+              </form>
+
 
             </div>
-            <div class="form-group">
-              <!-- Password 1  -->
-              <label for="pass1">Enter Your Password:</label>
-              <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
-              <!-- Password 2 for verification -->
-              <label for="pass2">Re-enter Your Password:</label>
-
-              <input type="password" class="form-control" name="pass2" id="pass2" onkeyup="checkPass(); return false;" placeholder="Re-enter Password">
-
-              <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else either.</small>
-              <span id="confirmMessage" class="confirmMessage"></span>
-            </div>
-            <!-- Remember Me -->
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-            </div>
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-              <!-- Submit Button  -->
-              <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="submit" class="btn btn-secondary">Submit</button>
-              </div>
-            </div>
-          </form>
-
-
+          </div>
+        </div>
+        <div class="col-sm-9">
         </div>
       </div>
     </div>
-    </div>
-    <div class="col-sm-9">
-    </div>
-  </div>
-</div>
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
