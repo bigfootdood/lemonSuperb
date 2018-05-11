@@ -1,14 +1,23 @@
 <!-- Page Content -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
+      <h1 class="fontApplication colorPlease mainTitle">Don't</h1>
+      <h1 class="fontApplication colorPlease mainTitle">Let Me</h1>
+      <h1 class="fontApplication colorPlease mainTitle">Die</h1>
+      <h3 class="fontApplication colorPlease"> By LemonSuperb</h3>
       <div class="card">
-        <img src="rsz_lemonboi.png" class="card-img-top" alt="A picture of a cute little lemon boi">
-        <div class="card-body">
-
-          <form name="form1" action ="/login" method="post">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link fontApplication colorBlack" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Log In
+            </button>
+          </h5>
+        </div>
+        <div class="collapse" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <form name="form1" action ="/login" method="post">
             <div class="form-group">
-              <h1>Log In</h1>
               <label for="email">Email address</label>
               <!--USERNAME == EMAIL -->
               <input name="loginEmail" type="username" class="form-control" id="Email" placeholder="Enter email">
@@ -39,12 +48,11 @@
               </div>
             </div>
           </form>
-
-
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-8">
       <!-- White space: TO BE FILLED WITH IDLE VISUALS UNTIL LOGIN  -->
     </div>
   </div>
