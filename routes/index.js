@@ -84,16 +84,16 @@ const constructorMethod = app => {
     // console.log(name);
     // console.log(color);
 
-    // console.log("About to create Pet: ");
-    // let new_pet = await back_end.createPet(name, species, color, habitat);
-    // console.log("Created pet, new DB: ");
-    // //update database here
-    // //adopt pet using above variables
-    // //make current user adopt created pet, get user from cookie then
-    // console.log("About to add new pet to user: " + "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
-    // let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
-    // console.log("Added pet to user, new DB: ");
-    // await back_end.testing_print();hunger
+    console.log("About to create Pet: ");
+    let new_pet = await back_end.createPet(name, species, color, habitat);
+    console.log("Created pet, new DB: ");
+    //update database here
+    //adopt pet using above variables
+    //make current user adopt created pet, get user from cookie then
+    console.log("About to add new pet to user: " + "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
+    let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
+    console.log("Added pet to user, new DB: ");
+    await back_end.testing_print();
     res.redirect('/main');
   });
 };
