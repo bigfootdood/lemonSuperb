@@ -7,8 +7,8 @@ seeder.connect(MONGO_URL, async function() {
  
   // Load Mongoose models
   await seeder.loadModels([
-    '../database/models/pet.js',
-    '../database/models/user.js'
+    '..back_end/database/models/pet.js',
+    '..back_end/database/models/user.js'
   ]);
  
   // Clear specified collections
