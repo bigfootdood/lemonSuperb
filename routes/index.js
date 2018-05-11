@@ -74,11 +74,11 @@ const constructorMethod = app => {
     // console.log(habitat);
     // console.log(name);
     // console.log(color);
-
+    let pet = back_end.createPet(name, species, color, habitat);
     //update database here
     //adopt pet using above variables
     //make current user adopt created pet, get user from cookie then
-    //
+    //let user = addPetToUser(user_id, pet["_id"]);
     res.redirect('/main');
   });
 };

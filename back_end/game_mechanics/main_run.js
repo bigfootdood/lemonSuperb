@@ -123,17 +123,19 @@ function createUser(userName, hashedPassword){
   return await database.user.getUser(userName);
 }
 
-function addPet(user_id, pet_id){
+function addPetToUser(user_id, pet_id){
   return await database.user.adoptPet(user_id, pet_id);
 }
 
-function createPet(pet_name, species, color){
+function createPet(pet_name, species, color, habitat){
   await database.pet.addPet(pet_name, species, color);
-  return await database.pet.getPet(pet_name);
+  let pet = await database.pet.getPet(pet_name);
+  let pet = await database.pet.updateSpecPet(pet["_id"], {"habitat": habitat});
+  return pet;
 }
 
 module.exports.main = main;
 module.exports.createUser = createUser;
-module.exports.addPet = addPet;
+module.exports.addPetToUser = addPetToUser;
 module.exports.createPet = createPet;
 // main()
