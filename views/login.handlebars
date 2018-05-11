@@ -1,0 +1,54 @@
+<!-- Page Content -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <img src="rsz_lemonboi.png" class="card-img-top" alt="A picture of a cute little lemon boi">
+        <div class="card-body">
+
+          <form action ="/login" method="post">
+            <div class="form-group">
+              <h1>Log In</h1>
+              <label for="email">Email address</label>
+              <!--USERNAME == EMAIL -->
+              <input type="username" class="form-control" id="Email" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <!-- TITLE FOR PASSWORD -->
+              <label for="password">Password</label>
+              <!-- PASSWORD INPUT -->
+              <input type="password" class="form-control" id="newPassWord" placeholder="Password">
+              <!-- Assurance Message -->
+              <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else either.</small>
+            </div>
+            <div class="form-check">
+              <!-- REMEMBER ME BUTTON -->
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <!-- REMEMBER ME BUTTON -->
+              <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+            </div>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="btn btn-secondary">Submit</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="Second Button">
+                <!-- NEW USER BUTTON -->
+                <button type="newUsr" class="btn btn-secondary">New User</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <!-- White space: TO BE FILLED WITH IDLE VISUALS UNTIL LOGIN  -->
+    </div>
+  </div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
