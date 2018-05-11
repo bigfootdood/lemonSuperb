@@ -71,7 +71,7 @@ const constructorMethod = app => {
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
     //res.sendFile(path.resolve("public/main.html"));
-    res.render('game');
+    res.render('game',{hunger:'width: 50%',thirst:'width: 75%',mental_health:'width: 80%'});
   });
   //main from new user
   app.post("/new_main", async function(req, res) {
@@ -93,7 +93,7 @@ const constructorMethod = app => {
     // console.log("About to add new pet to user: " + "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
     // let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
     // console.log("Added pet to user, new DB: ");
-    // await back_end.testing_print();
+    // await back_end.testing_print();hunger
     res.redirect('/main');
   });
 };
