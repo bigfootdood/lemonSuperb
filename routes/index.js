@@ -78,7 +78,7 @@ const constructorMethod = app => {
     //update database here
     //adopt pet using above variables
     //make current user adopt created pet, get user from cookie then
-    //let user = addPetToUser(user_id, pet["_id"]);
+    let user = addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", pet["_id"]);
     res.redirect('/main');
   });
 };

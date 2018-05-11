@@ -58,10 +58,10 @@ async function main(){
   let curr_time = Date.now();
   let last_time = user['lastLogin'];
   let diff_hours = Math.floor((curr_time-last_time)/3600000);
-  console.log(user);
-  console.log(curr_time);
-  console.log(last_time);
-  console.log(diff_hours);
+  // console.log(user);
+  // console.log(curr_time);
+  // console.log(last_time);
+  // console.log(diff_hours);
   //
 
   let pet = await database.pet.getPetById(user['petId'])
@@ -77,6 +77,7 @@ async function main(){
   let mentalHealth =  pet['mentalHealth']
   mentalHealth -= (diff_hours*100/8)
 
+  let pet = database.pet.updateSpecPet(pet["_id"], {"hunger": hunger, "thirst": thirst, "mentalHealth": mentalHealth});
   // console.log("Hunger: " + hunger);
   // console.log("Thirst: " + thirst);
   // console.log("mentalHealth: " + mentalHealth);
