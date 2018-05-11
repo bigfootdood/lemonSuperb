@@ -15,7 +15,8 @@ const constructorMethod = app => {
 
   //main login route
   app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/login1.html"));
+    //res.sendFile(path.resolve("public/login1.html"));
+    res.render('default');
   });
 
   //new user login routes
@@ -51,10 +52,6 @@ const constructorMethod = app => {
     //update database here
     res.redirect('/main');
   });
-
-
-
-
 };
 
 module.exports = constructorMethod;
