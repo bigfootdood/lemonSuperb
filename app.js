@@ -1,5 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParse = require("cookie-parser");
+const bcrypt = require("bcrypt");
+const path = require("path");
 const app = express();
 const static = express.static(__dirname + "/public");
 // const passport = require("passport");
@@ -12,6 +15,7 @@ const static = express.static(__dirname + "/public");
 const configRoutes = require("./routes");
 const exphbs = require("express-handlebars");
 app.use(express.static('public'));
+app.use(cookieParse());
 app.use("/public", static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

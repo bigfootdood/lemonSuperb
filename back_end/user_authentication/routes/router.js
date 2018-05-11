@@ -5,7 +5,6 @@ var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 var uuid = require('uuid/v4');
-var User = require('../user');
 var userDB = require('../../database/data/user');
 
 const isAuthUser = (req, res, next) => {
@@ -18,7 +17,7 @@ const isAuthUser = (req, res, next) => {
 };
 
 router.get('/', (req, res) => {
-	res.render('login');
+	res.render('/login');
 });
 
 router.get('/private', isAuthUser, (req, res) => {
@@ -32,11 +31,11 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
-  res.render('login');
+  res.render('index');
 });
 
 router.get('/newUserLogin', function(req, res) {
-  res.render('login');
+  res.render('/login');
 });
 
 router.post(
@@ -65,7 +64,7 @@ passport.use(
     passReqToCallback : true
   },
   function(req, username, password, done) {
-    if(User.findUserByName(username)) {
+    if(User.getUser(username)) {
       throw "Username taken";
     } else {
       userDBuserDB.addUser(username, bcrypt.hashpw(password));
@@ -82,8 +81,8 @@ passport.use(
     passReqToCallback : true
   },
   function (req, username, password, done) {
-	   if(User.findUserByName(username)) {
-       var user = User.findUserByName(username)
+	   if(User.getUser(username)) {
+       var user = User.getUser(username)
        if(!bcrypt.compare(password, user.hashedPassword)) {
          throw "Incorrect password";
        }
@@ -100,7 +99,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(function (id, done) {
 	try {
-		const user = User.findUserById(id);
+		const user = User.getUserById(id);
 		done(null, user);
 	} catch (err) {
 		done(err);
