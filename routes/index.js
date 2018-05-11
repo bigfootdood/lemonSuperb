@@ -67,14 +67,16 @@ const constructorMethod = app => {
   app.post("/new_main", function(req, res) {
     var species = req.body.shape;
     var habitat = req.body.habitat;
-    var color;
+    var color = req.body.color; //color being stored as int
     var name = req.body.petName;
-    console.log(species);
-    console.log(habitat);
-    console.log(name);
+    // console.log(species);
+    // console.log(habitat);
+    // console.log(name);
+    // console.log(color);
+
     //update database here
-    //create pet from form
-    //species & color & habitat
+    //adopt pet using above variables
+
     res.redirect('/main');
   });
 };
