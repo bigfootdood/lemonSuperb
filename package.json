@@ -1,0 +1,13 @@
+{
+  "name": "lemonsuperb",
+  "version": "1.0.0",
+  "description": "Don't Let Me Die",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "seed": "node ./back_end/database/tasks/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
