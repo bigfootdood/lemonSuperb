@@ -29,6 +29,7 @@ const constructorMethod = app => {
   //pet/habitat selection routes
   app.post("/selection", function(req, res) {
     //Add new user here!
+    //add cookie
     res.redirect('/selection');
   });
   app.get("/selection", (req, res) => {
@@ -37,13 +38,18 @@ const constructorMethod = app => {
 
   //main page routes
   app.post("/main", function(req, res) {
-    console.log(req.body.fname);
     //Here is were we do user authentication
+    //cookie here
     res.redirect('/main');
   });
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
     res.sendFile(path.resolve("public/main.html"));
+  });
+  //main from new user
+  app.post("/new_main", function(req, res) {
+    //update database here
+    res.redirect('/main');
   });
 
 
