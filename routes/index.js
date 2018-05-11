@@ -16,7 +16,7 @@ const constructorMethod = app => {
   //main login route
   app.get("/", (req, res) => {
     //res.sendFile(path.resolve("public/login1.html"));
-    res.render('default');
+    res.render('login');
   });
 
   //new user login routes
