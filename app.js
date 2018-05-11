@@ -2,8 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const static = express.static(__dirname + "/public");
-const passport = require("passport");
-const LocalStrategy = require('passport-local').Strategy;
+// const passport = require("passport");
+// const LocalStrategy = require('passport-local').Strategy;
 // const database = require("back_end/data");
 // const flash=require("connect-flash");
 
