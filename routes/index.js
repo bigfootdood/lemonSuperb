@@ -30,7 +30,12 @@ const constructorMethod = app => {
 
   //pet/habitat selection routes
   app.post("/selection", function(req, res) {
+    var username;
+    var password;
     //Add new user here!
+      //add new username
+      //add unhash password to db for now (we will fix it with passport later)
+      //generate unique user id with uuid
     //add cookie
     res.redirect('/selection');
   });
@@ -47,11 +52,17 @@ const constructorMethod = app => {
   });
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
-    res.sendFile(path.resolve("public/main.html"));
+    //res.sendFile(path.resolve("public/main.html"));
+    res.render('game');
   });
   //main from new user
   app.post("/new_main", function(req, res) {
+    var species;
+    var color;
+    var habitat;
     //update database here
+    //create pet from form
+    //species & color & habitat
     res.redirect('/main');
   });
 };
