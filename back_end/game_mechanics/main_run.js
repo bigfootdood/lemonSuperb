@@ -76,8 +76,8 @@ async function main(){
   thirst -= (diff_hours*100/24)
   let mentalHealth =  pet['mentalHealth']
   mentalHealth -= (diff_hours*100/8)
-
-  pet = database.pet.updateSpecPet(pet["_id"], {"hunger": hunger, "thirst": thirst, "mentalHealth": mentalHealth});
+  await console.log("MAIN PET: " + pet);
+  pet = await database.pet.updateSpecPet(pet["_id"], {"hunger": hunger, "thirst": thirst, "mentalHealth": mentalHealth});
   // console.log("Hunger: " + hunger);
   // console.log("Thirst: " + thirst);
   // console.log("mentalHealth: " + mentalHealth);
@@ -85,17 +85,17 @@ async function main(){
 
 
   if(hunger <= 0 || thirst <=0){
-    temp = database.pet.updateSpecPet(pet["_id"], {"alive": false})
+    temp = await database.pet.updateSpecPet(pet["_id"], {"alive": false})
   }
 
   if(mentalHealth < 50){
     if(getRandomInt(3) == 1){
-       temp = database.pet.updateSpecPet(pet["_id"], {"sick": true})
+       temp = await database.pet.updateSpecPet(pet["_id"], {"sick": true})
     }
   }
   else {
     if(getRandomInt(6) == 1){
-      temp = database.pet.updateSpecPet(pet["_id"], {"sick": true})
+      temp = await database.pet.updateSpecPet(pet["_id"], {"sick": true})
     }
   }
 
@@ -131,6 +131,7 @@ async function addPetToUser(user_id, pet_id){
 async function createPet(pet_name, species, color, habitat){
   await database.pet.addPet(pet_name, species, color);
   let pet = await database.pet.getPet(pet_name);
+  console.log("PET IMPORTANT: " + pet);
   pet = await database.pet.updateSpecPet(pet["_id"], {"habitat": habitat});
   return pet;
 }

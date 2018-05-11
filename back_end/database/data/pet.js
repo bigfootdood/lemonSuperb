@@ -49,7 +49,7 @@ module.exports = {
      *      }
      */
     async updateSpecPet(id, updates){
-        if (!id) throw "You must provide id";
+        if (!id) throw "You must provide pet id";
 
         if (!updates) throw "You must provide updated data";
 
