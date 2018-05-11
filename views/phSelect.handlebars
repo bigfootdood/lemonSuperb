@@ -16,13 +16,16 @@ canvas{
 <div class="container">
   <form name="select" id="select" action="/new_main" method="post">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1>Choose your pet!</h1>
+      <div class="col-lg-6 text-center">
+        <h1 class= "fontApplication colorPlease">Choose your pet!</h1>
+      </div>
+      <div class="col-lg-6 text-center">
+        <h1 class="fontApplication colorPlease">Choose your habitat!</h1>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-12 text-center">
+      <div class="col-lg-6">
         <div id="carousel0" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
@@ -90,72 +93,69 @@ canvas{
               <span class="sr-only">Next</span>
             </a>
           </div>
-      </div>
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1>Choose your habitat!</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="false">
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm-8">
-                      <div class="card">
-                        <img src="http://via.placeholder.com/350x150" class="card-img-top">
-                        <div class="card-body">
-                          Habitat 1
-                          <input  name="habitat" value="0" type="radio" form="select" checked>I want this!</input>
+          <div class="col-lg-6 text-center">
+            <div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                      <div class="row">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="card">
+                            <img src="http://via.placeholder.com/350x150" class="card-img-top">
+                            <div class="card-body">
+                              Habitat 1
+                              <input  name="habitat" value="0" type="radio" form="select" checked>I want this!</input>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="card">
+                          <img src="http://via.placeholder.com/350x150" class="card-img-top">
+                          <div class="card-body">
+                            Habitat 2
+                            <input name="habitat" value="1" type="radio" form="select" >I want this!</input>
+                            <label class="form-check-label" for="radio106">Habitat 2</label>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-sm-2">
-                  </div>
-                  <div class="col-sm-8">
-                    <div class="card">
-                      <img src="http://via.placeholder.com/350x150" class="card-img-top">
-                      <div class="card-body">
-                        Habitat 2
-                        <input name="habitat" value="1" type="radio" form="select" >I want this!</input>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="card">
+                          <img src="http://via.placeholder.com/350x150" class="card-img-top">
+                          <div class="card-body">
+                            Habitat 3
+                            <input name="habitat" value="2" type="radio" form="select">I want this!</input>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-sm-2">
-                  </div>
-                  <div class="col-sm-8">
-                    <div class="card">
-                      <img src="http://via.placeholder.com/350x150" class="card-img-top">
-                      <div class="card-body">
-                        Habitat 3
-                        <input name="habitat" value="2" type="radio" form="select">I want this!</input>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
       </div>
+    <div class="row">
+
     </div>
     <div class="row">
       <div class="col-sm-2">
@@ -175,19 +175,6 @@ canvas{
           <option value="4">Flamingo</option>
           <option value="5">Oh, oh, ohohoho</option>
         </select>
-        <!-- <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Pet Color
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" value="0" name="color">Red</a>
-            <a class="dropdown-item" value="1" name="color">Orange</a>
-            <a class="dropdown-item" value="2" name="color" >Green</a>
-            <a class="dropdown-item" value="3" name="color">Blue</a>
-            <a class="dropdown-item" value="4" name="color">Flamingo</a>
-            <a class="dropdown-item" value="5" name="color" >Oh, oh, ohohoho</a>
-          </div>
-        </div> -->
         <button type="submit" form="select" class="btn btn-secondary">Submit</button>
       </div>
     </div>
