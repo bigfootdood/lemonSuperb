@@ -34,11 +34,11 @@ const constructorMethod = app => {
     console.log(new_username);
     var new_password = req.body.newPassword; //to be secured using passport with raul's code
     console.log(new_password);
-    //Add new user here!
-      //add new username
-      //add unhash password to db for now (we will fix it with passport later)
+    //Add new user to database here!
+      //add new_username
+      //add unhashed new_password to db for now (we will fix it with passport later)
       //generate unique user id with uuid
-    //add cookie
+    //here is where we will eventually create a cookie
     res.redirect('/selection');
   });
   app.get("/selection", (req, res) => {
@@ -49,8 +49,9 @@ const constructorMethod = app => {
   //main page routes
   app.post("/main", function(req, res) {
     var username = req.body.loginEmail;
-    console.log(username);
+    //console.log(username);
     var password = req.body.password;
+    //console.log(password)
 
     //Here is were we do user authentication
 
@@ -64,9 +65,13 @@ const constructorMethod = app => {
   });
   //main from new user
   app.post("/new_main", function(req, res) {
-    var species;
+    var species = req.body.shape;
+    var habitat = req.body.habitat;
     var color;
-    var habitat;
+    var name = req.body.petName;
+    console.log(species);
+    console.log(habitat);
+    console.log(name);
     //update database here
     //create pet from form
     //species & color & habitat
