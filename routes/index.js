@@ -1,4 +1,5 @@
 const path = require("path");
+const back_end = require("../back_end/game_mechanics/main_run");
 // var fs = require('fs');
 // var fileName = '../public/app.json';
 // var file = require(fileName);
@@ -14,7 +15,10 @@ const constructorMethod = app => {
     res.sendFile(path.resolve("public/login1.html"));
     //res.render('default');
   });
-
+  app.get("/main", (req, res) => {
+    back_end.script.run_main();
+    res.sendFile(path.resolve("public/main.html"));
+  });
 };
 
 module.exports = constructorMethod;

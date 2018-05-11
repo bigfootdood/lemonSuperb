@@ -54,7 +54,7 @@ async function main(){
   // let user = get userID from cookie //////////////TODO NEEDs to be from cookie
   let user = await database.user.getUserById("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
 
-  
+
   let curr_time = Date.now();
   let last_time = user['lastLogin'];
   let diff_hours = Math.floor((curr_time-last_time)/3600000);
@@ -118,4 +118,8 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-main()
+module.exports = {
+  script: run_main()
+}
+
+// main()
