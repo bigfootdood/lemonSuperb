@@ -75,7 +75,7 @@ const constructorMethod = app => {
         res.cookie("AuthCookie", username);
         res.redirect('/main');
       }
-    }
+    });
 
     // console.log(password)
 
