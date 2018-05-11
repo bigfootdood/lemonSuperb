@@ -2,6 +2,7 @@ const path = require("path");
 const cookieParse = require("cookie-parser");
 const bcrypt = require("bcrypt");
 const back_end = require("../back_end/game_mechanics/main_run");
+var salt = bcrypt.genSaltSync(10);
 // const passport = require("passport");
 // var fs = require('fs');
 // var fileName = '../public/app.json';
@@ -39,7 +40,7 @@ const constructorMethod = app => {
     var new_username = req.body.newUserEmail;
     console.log(new_username);
     var new_password = req.body.newPassword; //to be secured using passport with raul's code
-    hashPass = bcrypt.hashpw(new_password);
+    hashPass = bcrypt.hashSync(new_password, salt);
     console.log(new_password);
     //Add new user to database here!
       //add new_username
