@@ -62,15 +62,15 @@ const constructorMethod = app => {
     res.render('phSelect')
   });
   //main page routes
-  app.post("/main", function(req, res) {
-    console.log("Made it to post to main");
+  app.post("/main", async function(req, res) {
+    await console.log("Made it to post to main");
     // passport.authenticate('local', { successRedirect: '/main',
     //                                  failureRedirect: '/'
     //                                  })
     var username = req.body.loginEmail;
     //console.log(username);
     var password = req.body.password;
-    console.log("Accessed username and password");
+    await console.log("Accessed username and password");
     const hashedPassword = back_end.get_hash(username);
     console.log("hased password");
     bcrypt.compare(password, hashedPassword, function(err, result) {
