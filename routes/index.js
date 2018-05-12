@@ -26,6 +26,11 @@ const constructorMethod = app => {
     res.render('login');
   });
 
+  app.post("/", function(req, res) {
+    res.clearCookie("AuthCookie");
+    res.redirect('/');
+  })
+
   //new user login routes
   app.post("/new_user", function(req, res) {
     res.redirect('/new_user');
@@ -120,6 +125,8 @@ const constructorMethod = app => {
     await back_end.testing_print();
     res.redirect('/main');
   });
+
+
 };
 
 module.exports = constructorMethod;
