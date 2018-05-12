@@ -85,7 +85,8 @@ const constructorMethod = app => {
     bcrypt.compare(password, hashedPassword, function(err, result) {
       if (!result) {
         console.log("wrong password");
-        throw "Incorrect Password"; // Change to res.render.fuckoff
+        // throw "Incorrect Password"; // Change to res.render.fuckoff
+        res.render("login", {err: 'Wrong Username or Password'});
       } else {
         console.log("correct password");
         res.cookie("AuthCookie", username);
@@ -94,7 +95,6 @@ const constructorMethod = app => {
     });
 
     // console.log(password)
-
     //Here is were we do user authentication
 
     //cookie here
