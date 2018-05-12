@@ -147,7 +147,7 @@ async function testing_print(){
 
 async function get_hash(user){
   // console.log("gottssss herere");
-  let users = database.user.getAllUsers();
+  let users = await database.user.getAllUsers();
   for (var i = 0; i < users.length; i++) {
     if(users[i]["username"] == user){
       return users[i]["hashedPassword"];
