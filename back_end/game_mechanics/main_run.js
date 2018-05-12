@@ -75,7 +75,7 @@ async function testing_print(){
 async function get_hash(user){
   let users = await database.user.getAllUsers();
   for (var i = 0; i < users.length; i++) {
-    if(users[i]["username"] == user){
+    if(users[i]["userName"] == user){
       return users[i]["hashedPassword"];
     }
   }
@@ -90,4 +90,3 @@ module.exports.createPet = createPet;
 module.exports.get_hash = get_hash;
 
 module.exports.testing_print = testing_print;
-
