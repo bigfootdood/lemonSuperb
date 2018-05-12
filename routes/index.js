@@ -80,7 +80,7 @@ const constructorMethod = app => {
     var password = req.body.password;
 
     await console.log("Accessed username and password");
-    const hashedPassword = back_end.get_hash(username);
+    const hashedPassword = await back_end.get_hash(username);
     console.log("hased password");
     bcrypt.compare(password, hashedPassword, function(err, result) {
       if (!result) {
@@ -126,7 +126,8 @@ const constructorMethod = app => {
     //make current user adopt created pet, get user from cookie then
     await console.log("THE COOKIE: " + req.cookies.AuthCookie);
     await console.log("About to add new pet to user: " + "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
-    let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
+    let userToAdd = await data.user.getUser(req.cookies.AuthCookie);
+    let user = await back_end.addPetToUser(userToAdd["_id"],new_pet["_id"]);
     await console.log("Added pet to user, new DB: ");
     await back_end.testing_print();
     res.redirect('/main');
@@ -136,10 +137,11 @@ const constructorMethod = app => {
     var hab = req.body.habitat;
     let username = req.cookies.AuthCookie;
     var user = await data.user.getUser(username);
-    var pet = await data.pet.getPetById(user[petId]);
+    console.log(user);
+    var pet = await data.pet.getPetById(user["petId"]);
     var habObj = {habitat : hab};
 
-    await data.pet.updateSpecPet(pet[_id], habObj);
+    await data.pet.updateSpecPet(pet["_id"], habObj);
 
     // if(hab == 0){
     //   //set habitat to 0
