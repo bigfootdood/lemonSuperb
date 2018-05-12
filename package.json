@@ -8,7 +8,7 @@
     "seed": "node ./tasks/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Raul Camilo, Christopher Lyons, Zachary Saegesser, Ryan Edelstein, Derek Pulaski",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^2.0.1",
