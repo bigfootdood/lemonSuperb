@@ -65,6 +65,14 @@ const constructorMethod = app => {
     //here is where we will eventually create a cookie
     res.redirect('/selection');
   });
+
+  app.use("/selection", (req, res, next) => {
+    if (!(req.cookies.AuthCookie)){
+      res.status(403).send("Stop hacking our site");
+    }
+    next();
+  });
+
   app.get("/selection", (req, res) => {
     //res.sendFile(path.resolve("public/selection.html"));
     res.render('phSelect')
@@ -101,6 +109,12 @@ const constructorMethod = app => {
     //res.redirect('/main');
   });
 
+  app.use("/main", (req, res, next) => {
+    if (!(req.cookies.AuthCookie)){
+      res.status(403).send("Stop hacking our site");
+    }
+    next();
+  })
   app.get("/main", async function (req, res) {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
     //res.sendFile(path.resolve("public/main.html"));
