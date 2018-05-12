@@ -73,9 +73,20 @@ const constructorMethod = app => {
     next();
   });
 
-  app.get("/selection", (req, res) => {
+  app.get("/selection", async function (req, res) {
     //res.sendFile(path.resolve("public/selection.html"));
-    res.render('phSelect')
+    // let username = req.cookies.AuthCookie;
+    // var user = await data.user.getUser(username);
+    // let pet = await data.pet.getPetById(user["petId"]);
+
+    // let isAlive = pet["alive"];
+    // if(isAlive){
+      res.render('phSelect');
+    // }
+    // else{
+    //   res.render('phSelect', {death: 'YOUR PET DIED!'});
+    // }
+
   });
   //main page routes
   app.post("/main", async function(req, res) {
@@ -130,6 +141,9 @@ const constructorMethod = app => {
     let petName = pet["name"];
     let isAlive = pet["alive"];
     // console.log(hab);
+    // if(isAlive == false){
+    //   res.redirect('/selection');
+    // }
     if(hab == 0){
       res.render('game',{hunger:'width: '+ hungerStat + '%',thirst:'width: '+ thirstStat + '%',mental_health:'width: '+ mentalHealth + '%', background: '/habitats/forest.json'});
     }
