@@ -2,6 +2,7 @@ const path = require("path");
 const cookieParse = require("cookie-parser");
 const bcrypt = require("bcrypt");
 const back_end = require("../back_end/game_mechanics/main_run");
+const data = require("../back_end/database/data");
 var salt = bcrypt.genSaltSync(10);
 // const passport = require("passport");
 // var fs = require('fs');
@@ -101,6 +102,7 @@ const constructorMethod = app => {
   app.get("/main", (req, res) => {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
     //res.sendFile(path.resolve("public/main.html"));
+
     res.render('game',{hunger:'width: 50%',thirst:'width: 75%',mental_health:'width: 80%'});
   });
   //main from new user
@@ -124,6 +126,22 @@ const constructorMethod = app => {
     let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
     await console.log("Added pet to user, new DB: ");
     await back_end.testing_print();
+    res.redirect('/main');
+  });
+
+  app.post("/habitat",async function(req,res){
+    var hab = req.body.habitat;
+
+    if(hab == 0){
+      //set habitat to 0
+      console.log("Forest");
+    }else if(hab == 1){
+      //set habitat to 1
+      console.log("Snow Forest");
+    }else{
+      //set habitat to 2
+      console.log("Beach")
+    }
     res.redirect('/main');
   });
 
