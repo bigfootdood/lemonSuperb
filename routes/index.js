@@ -27,6 +27,7 @@ const constructorMethod = app => {
   });
 
   app.post("/", function(req, res) {
+    console.log("I BLAME CHRIS FOR THIS SHIT");
     res.clearCookie("AuthCookie");
     res.redirect('/');
   })
