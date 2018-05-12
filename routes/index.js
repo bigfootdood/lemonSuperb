@@ -19,6 +19,7 @@ const constructorMethod = app => {
   //main login route
   app.get("/", (req, res) => {
     //res.sendFile(path.resolve("public/login1.html"));
+    console.log("Made it to root");
     if(req.cookies.AuthCookie) {
       res.redirect('/main');
     }
@@ -62,17 +63,22 @@ const constructorMethod = app => {
   });
   //main page routes
   app.post("/main", function(req, res) {
+    console.log("Made it to post to main");
     // passport.authenticate('local', { successRedirect: '/main',
     //                                  failureRedirect: '/'
     //                                  })
     var username = req.body.loginEmail;
     //console.log(username);
     var password = req.body.password;
+    console.log("Accessed username and password");
     const hashedPassword = back_end.get_hash(username);
+    console.log("hased password");
     bcrypt.compare(password, hashedPassword, function(err, result) {
       if (!result) {
+        console.log("wrong password");
         throw "Incorrect Password"; // Change to res.render.fuckoff
       } else {
+        console.log("correct password");
         res.cookie("AuthCookie", username);
         res.redirect('/main');
       }
