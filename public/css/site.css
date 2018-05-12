@@ -73,3 +73,9 @@ h1.paddingPlease{
 input.pad{
   padding-top: 10px;
 }
+
+img.tallness{
+  display:block;
+  max-width: 300px;
+
+}
