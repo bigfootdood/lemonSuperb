@@ -54,6 +54,7 @@ const constructorMethod = app => {
       //add new_username
       //add unhashed new_password to db for now (we will fix it with passport later)
       //generate unique user id with uuid
+
     console.log("About to create User");
     let user = await back_end.createUser(new_username, hashPass);
     res.cookie("AuthCookie", new_username);
@@ -77,6 +78,7 @@ const constructorMethod = app => {
     var username = req.body.loginEmail;
     //console.log(username);
     var password = req.body.password;
+
     await console.log("Accessed username and password");
     const hashedPassword = back_end.get_hash(username);
     console.log("hased password");
@@ -122,6 +124,7 @@ const constructorMethod = app => {
     //update database here
     //adopt pet using above variables
     //make current user adopt created pet, get user from cookie then
+    await console.log("THE COOKIE: " + req.cookies.AuthCookie);
     await console.log("About to add new pet to user: " + "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310");
     let user = await back_end.addPetToUser("7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", new_pet["_id"]);
     await console.log("Added pet to user, new DB: ");
