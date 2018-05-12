@@ -149,7 +149,7 @@ async function get_hash(user){
   // console.log("gottssss herere");
   let users = await database.user.getAllUsers();
   for (var i = 0; i < users.length; i++) {
-    if(users[i]["username"] == user){
+    if(users[i]["userName"] == user){
       return users[i]["hashedPassword"];
     }
   }
