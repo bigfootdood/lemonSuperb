@@ -101,11 +101,31 @@ const constructorMethod = app => {
     //res.redirect('/main');
   });
 
-  app.get("/main", (req, res) => {
+  app.get("/main", async function (req, res) {
     back_end.main(); //runs the game mechanics script to initialize the instance of the game
     //res.sendFile(path.resolve("public/main.html"));
+    let username = req.cookies.AuthCookie;
+    var user = await data.user.getUser(username);
+    let pet = await data.pet.getPetById(user["petId"]);
 
-    res.render('game',{hunger:'width: 50%',thirst:'width: 75%',mental_health:'width: 80%'});
+    let hab = pet["habitat"];
+    let hungerStat = pet["hunger"];
+    let sickStat = pet["sick"];
+    let thirstStat = pet["thirst"];
+    let mentalHealth = pet["mentalHealth"];
+    let petName = pet["name"];
+    let isAlive = pet["alive"];
+    // console.log(hab);
+    if(hab == 0){
+      res.render('game',{hunger:'width: '+ hungerStat + '%',thirst:'width: '+ thirstStat + '%',mental_health:'width: '+ mentalHealth + '%', background: '/habitats/forest.json'});
+    }
+    else if(hab == 1){
+      res.render('game',{hunger:'width: '+ hungerStat + '%',thirst:'width: '+ thirstStat + '%',mental_health:'width: '+ mentalHealth + '%', background: '/habitats/snow_forest.json'});
+    }
+    else{
+      // console.log()
+      res.render('game',{hunger:'width: '+ hungerStat + '%',thirst:'width: '+ thirstStat + '%',mental_health:'width: '+ mentalHealth + '%', background: '/habitats/beach.json'});
+    }
   });
   //main from new user
   app.post("/new_main", async function(req, res) {
@@ -137,7 +157,7 @@ const constructorMethod = app => {
     var hab = req.body.habitat;
     let username = req.cookies.AuthCookie;
     var user = await data.user.getUser(username);
-    console.log(user);
+    // console.log(user);
     var pet = await data.pet.getPetById(user["petId"]);
     var habObj = {habitat : hab};
 
