@@ -131,17 +131,24 @@ const constructorMethod = app => {
 
   app.post("/habitat",async function(req,res){
     var hab = req.body.habitat;
+    let username = req.cookies.AuthCookie;
+    var user = await data.user.getUser(username);
+    var pet = await data.pet.getPetById(user[petId]);
+    var habObj = {habitat : hab};
 
-    if(hab == 0){
-      //set habitat to 0
-      console.log("Forest");
-    }else if(hab == 1){
-      //set habitat to 1
-      console.log("Snow Forest");
-    }else{
-      //set habitat to 2
-      console.log("Beach")
-    }
+    await data.pet.updateSpecPet(pet[_id], habObj);
+
+    // if(hab == 0){
+    //   //set habitat to 0
+
+    //   console.log("Forest");
+    // }else if(hab == 1){
+    //   //set habitat to 1
+    //   console.log("Snow Forest");
+    // }else{
+    //   //set habitat to 2
+    //   console.log("Beach")
+    // }
     res.redirect('/main');
   });
 
